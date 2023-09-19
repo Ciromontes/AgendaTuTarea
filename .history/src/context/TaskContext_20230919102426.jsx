@@ -10,26 +10,25 @@ export function TaskContextProvider(props) {
              {
             title: task.title,
             id: tasks.length,
-            description: task.description,
-            completed: false  // Agrega esta línea
+            description: task.description
         }])
     }
-
     function deleteTask(taskId) {
         setTasks(tasks.filter(task => task.id !== taskId));
     }
-
-    function completeTask(taskId) {
-        setTasks(tasks.map(task => task.id === taskId ? {...task, completed: true} : task));
-    }
-
     useEffect(() => {
         setTasks(data)
     }, []);
 
     return (
-        <TaskContext.Provider value={{ tasks, createTask, deleteTask, completeTask }}>
+        <TaskContext.Provider value={{
+            tasks,
+            deleteTask,
+            createTask
+        }}>
             {props.children}
         </TaskContext.Provider>
+
     );
 }
+

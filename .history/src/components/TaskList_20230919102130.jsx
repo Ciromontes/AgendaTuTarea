@@ -1,11 +1,9 @@
 import TaskCard from "./TaskCard";
 import { useContext } from "react";
 import { TaskContext } from '../context/TaskContext';
-import Confetti from 'react-confetti';  // Importa el componente Confetti
 
 function TaskList() {
   const { tasks } = useContext(TaskContext);
-  const allTasksCompleted = tasks.every(task => task.completed);  // Comprueba si todas las tareas están completas
 
   if (tasks.length === 0) {
     return (
@@ -17,7 +15,6 @@ function TaskList() {
 
   return (
     <div className="grid grid-cols-4 gap-4 p-4">
-      {allTasksCompleted && <Confetti width={window.innerWidth} height={window.innerHeight} />}  
       {tasks.map((task) => (
         <TaskCard key={task.id} task={task} />
       ))}
@@ -26,5 +23,4 @@ function TaskList() {
 }
 
 export default TaskList;
-
 

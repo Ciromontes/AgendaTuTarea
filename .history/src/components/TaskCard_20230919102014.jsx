@@ -17,7 +17,7 @@ function TaskList() {
 
   return (
     <div className="grid grid-cols-4 gap-4 p-4">
-      {allTasksCompleted && <Confetti width={window.innerWidth} height={window.innerHeight} />}  
+      {allTasksCompleted && <Confetti width={window.innerWidth} height={window.innerHeight} />}  // Muestra confeti si todas las tareas están completas
       {tasks.map((task) => (
         <TaskCard key={task.id} task={task} />
       ))}
@@ -26,5 +26,4 @@ function TaskList() {
 }
 
 export default TaskList;
-
 
